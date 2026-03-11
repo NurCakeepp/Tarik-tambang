@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
-<title>Tarik Tambang Matematika</title>
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarik Tambang Matematika</title>
 <style>
 
 body{
@@ -24,18 +24,20 @@ letter-spacing:2px;
 
 .container{
 display:flex;
-justify-content:space-between;
+justify-content:center;
 align-items:center;
-margin:40px;
+gap:20px;
+margin:30px;
+flex-wrap:wrap;
 }
-
 .panel{
 background:white;
 padding:20px;
 border-radius:10px;
-width:220px;
+width:100%;
+max-width:220px;
 box-shadow:0 0 10px rgba(0,0,0,0.2);
-}
+ }
 
 .panel h2{
 color:white;
@@ -60,15 +62,15 @@ margin-bottom:10px;
 }
 
 /* ARENA */
-
 .arena{
-width:400px;
+width:100%;
+max-width:400px;
 height:150px;
 position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
-}
+ }   
 
 /* TALI */
 
@@ -208,7 +210,51 @@ color:rgb(0, 0, 0);
 background:#0b7ea1;
 color:rgb(0, 0, 0);
 }
+/* TABLET */
+@media (max-width:900px){
 
+h1{
+font-size:35px;
+}
+
+.container{
+flex-direction:column;
+align-items:center;
+}
+
+.arena{
+order:-1;
+margin-bottom:20px;
+}
+
+}
+
+/* HP */
+@media (max-width:600px){
+
+h1{
+font-size:28px;
+}
+
+.panel{
+max-width:90%;
+}
+
+input{
+height:35px;
+font-size:18px;
+}
+
+.keypad button{
+padding:10px;
+font-size:14px;
+}
+
+.player{
+width:70px;
+}
+
+}
 
 </style>
 </head>
@@ -545,4 +591,5 @@ newQuestionPlayer(2)
 </script>
 
 </body>
+
 </html>
