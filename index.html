@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Tarik Tambang Matematika</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+height:100vh;
+background:linear-gradient(#7ec8e3,#c7d7df);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+h1{
+font-family:'Luckiest Guy', cursive;
+font-size:45px;
+color:#484c6e;
+text-shadow:3px 3px 0px #000;
+letter-spacing:2px;
+}
+
+/* kotak utama */
+
+.splash{
+background:white;
+padding:50px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:500px;
+}
+
+/* judul */
+
+.title{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+/* pemain */
+
+.players{
+display:flex;
+justify-content:space-between;
+margin-bottom:30px;
+}
+
+.players img{
+width:140px;
+animation:jump 1s infinite alternate;
+}
+
+/* animasi */
+
+@keyframes jump{
+from{ transform:translateY(0px);}
+to{ transform:translateY(-10px);}
+}
+
+/* tombol */
+.fullscreen-btn{
+position:fixed;
+top:0;
+right:0;
+margin:15px;
+padding:10px 15px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#27ae60;
+color:white;
+cursor:pointer;
+z-index:9999;
+}
+
+.fullscreen-btn:hover{
+background:#1f8f4c;
+}
+.start-btn{
+padding:18px 50px;
+font-size:24px;
+border:none;
+border-radius:12px;
+background:#27ae60;
+color:white;
+cursor:pointer;
+transition:0.2s;
+}
+
+.start-btn:hover{
+background:#1f8f4c;
+transform:scale(1.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="splash">
+<button class="fullscreen-btn" onclick="openFullscreen()">
+⛶
+</button>
+<h1 class="title">Tarik Tambang Matematika</h1>
+
+<p class="subtitle">Game belajar berhitung untuk anak SD</p>
+<p class="subtitle">Disusun Oleh Kelompok 4</p>
+<div class="players">
+
+<img src="player-kiri.svg">
+
+<img src="player-kanan.svg">
+
+</div>
+
+<button class="start-btn"
+onclick="location.href='menu.html'">
+
+Mulai
+
+</button>
+
+</div>
+
+</body>
+</html>

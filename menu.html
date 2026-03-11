@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Menu - Tarik Tambang Matematika</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:linear-gradient(#7ec8e3,#c7d7df);
+text-align:center;
+margin:0;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.menu-box{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:450px;
+}
+
+.title{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#666;
+margin-bottom:30px;
+}
+
+/* karakter */
+
+.players{
+display:flex;
+justify-content:space-between;
+margin-bottom:30px;
+}
+
+.players img{
+width:120px;
+}
+
+/* tombol */
+
+.menu-btn{
+display:block;
+width:100%;
+padding:15px;
+margin:10px 0;
+font-size:20px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+color:white;
+transition:0.2s;
+}
+
+.play{
+background:#27ae60;
+}
+
+.play:hover{
+background:#1f8f4c;
+}
+
+.about{
+background:#3498db;
+}
+
+.credits{
+background:#9b59b6;
+}
+
+.menu-btn:hover{
+transform:scale(1.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="menu-box">
+
+<h1 class="title">Tarik Tambang Matematika</h1>
+
+<p class="subtitle">Game belajar berhitung untuk anak SD</p>
+
+<div class="players">
+
+<img src="player-kiri.svg">
+
+<img src="player-kanan.svg">
+
+</div>
+
+<button class="menu-btn play"
+onclick="location.href='main.html'">
+
+ Ayo Bermain
+
+</button>
+
+<button class="menu-btn about"
+onclick="location.href='tentang.html'">
+
+ Tentang Game
+
+</button>
+
+<button class="menu-btn credits"
+onclick="location.href='credits.html'">
+
+ Credits
+
+</button>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+<!-- rambut -->
+<rect x="30" y="5" width="60" height="18" fill="#111"></rect>
+
+<!-- bandana -->
+<rect x="30" y="18" width="60" height="6" fill="#d83a3a"></rect>
+
+<!-- kepala -->
+<rect x="35" y="24" width="50" height="35" fill="#f4b183"></rect>
+
+<!-- mata -->
+<rect x="45" y="35" width="6" height="6" fill="#000"></rect>
+<rect x="65" y="35" width="6" height="6" fill="#000"></rect>
+
+<!-- alis -->
+<rect x="44" y="30" width="8" height="3" fill="#000"></rect>
+<rect x="64" y="30" width="8" height="3" fill="#000"></rect>
+
+<!-- badan -->
+<rect x="30" y="60" width="60" height="30" fill="#2c2c9c"></rect>
+
+<!-- tangan -->
+<circle cx="30" cy="65" r="10" fill="#f4b183"></circle>
+<circle cx="90" cy="65" r="10" fill="#f4b183"></circle>
+
+<!-- kaki -->
+<rect x="40" y="90" width="10" height="20" fill="#222"></rect>
+<rect x="70" y="90" width="10" height="20" fill="#222"></rect>
+
+<!-- sepatu -->
+<rect x="38" y="108" width="14" height="6" fill="#000"></rect>
+<rect x="68" y="108" width="14" height="6" fill="#000"></rect>
+
+</svg>

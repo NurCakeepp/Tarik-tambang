@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Tarik Tambang Matematika</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#c7d7df;
+text-align:center;
+}
+
+h1{
+margin-top:20px;
+font-family:'Luckiest Guy', cursive;
+font-size:45px;
+color:#6a6488;
+text-shadow:3px 3px 0px #000;
+letter-spacing:2px;
+}
+
+.container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:40px;
+}
+
+.panel{
+background:white;
+padding:20px;
+border-radius:10px;
+width:220px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.panel h2{
+color:white;
+padding:10px;
+margin:-20px -20px 10px -20px;
+}
+
+.left h2{
+background:#1e1b7a;
+}
+
+.right h2{
+background:#9b001f;
+}
+
+input{
+width:100%;
+height:40px;
+font-size:20px;
+text-align:center;
+margin-bottom:10px;
+}
+
+/* ARENA */
+
+.arena{
+width:400px;
+height:150px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* TALI */
+
+.rope{
+width:100%;
+height:10px;
+background:#a52a2a;
+position:relative;
+z-index:1;
+}
+
+/* PENANDA TALI */
+
+.marker{
+width:20px;
+height:30px;
+background:white;
+position:absolute;
+left:190px;
+top:-10px;
+transition:0.2s;
+}
+
+/* GARIS TENGAH */
+
+.center-line{
+position:absolute;
+left:50%;
+top:50%;
+width:4px;
+height:120px;
+background:#383724;
+transform:translate(-50%,-50%);
+}
+
+/* KARAKTER */
+
+.player{
+width:90px;
+position:absolute;
+top:23px;
+z-index:2;
+}
+
+.player.left{
+left:-70px;
+transform:scaleX(-1);
+}
+
+.player.right{
+right:-70px;
+transform:scaleX(-1);
+}
+/* pop up */
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.popup-box{
+background:white;
+padding:40px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+animation:pop 0.3s ease;
+}
+
+.popup-box h2{
+margin-bottom:20px;
+font-size:28px;
+}
+
+.popup-box button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#0b7ea1;
+color:white;
+cursor:pointer;
+}
+.menu-btn{
+margin-top:10px;
+padding:10px 25px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#9b2507;
+color:white;
+cursor:pointer;
+}
+
+.menu-btn:hover{
+background:#b5352c;
+}
+@keyframes pop{
+from{
+transform:scale(0.6);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+/* KEYPAD */
+
+.keypad{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+}
+
+.keypad button{
+padding:12px;
+font-size:16px;
+cursor:pointer;
+border:none;
+background:#ddd;
+border-radius:4px;
+}
+
+.clear{
+background:#ff3b30;
+color:rgb(0, 0, 0);
+}
+
+.go{
+background:#0b7ea1;
+color:rgb(0, 0, 0);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>Tarik Tambang Matematika</h1>
+<button class="menu-btn"
+onclick="location.href='menu.html'">
+Kembali ke Menu
+</button>
+<audio id="bgm" autoplay loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<!-- PANEL KIRI -->
+<div class="panel left">
+
+<h2 id="q1">8 + 5 = ?</h2>
+
+<input id="ans1" readonly>
+
+<div class="keypad">
+
+<button onclick="add(1,'ans1')">1</button>
+<button onclick="add(2,'ans1')">2</button>
+<button onclick="add(3,'ans1')">3</button>
+
+<button onclick="add(4,'ans1')">4</button>
+<button onclick="add(5,'ans1')">5</button>
+<button onclick="add(6,'ans1')">6</button>
+
+<button onclick="add(7,'ans1')">7</button>
+<button onclick="add(8,'ans1')">8</button>
+<button onclick="add(9,'ans1')">9</button>
+
+<button class="clear" onclick="clearAns('ans1')">C</button>
+<button onclick="add(0,'ans1')">0</button>
+<button class="go" onclick="check(1)">Go</button>
+
+</div>
+</div>
+<!-- pop up -->
+ <div id="popupWin" class="popup">
+
+<div class="popup-box">
+
+<h2 id="winnerText">Pemain Menang!</h2>
+
+<button onclick="restartGame()">Main Lagi</button>
+
+</div>
+
+</div>
+
+<!-- ARENA TALI -->
+<div class="arena" id="arena">
+
+<img src="player-kiri.svg" class="player left" id="playerLeft">
+
+<div class="center-line"></div>
+
+<div class="rope" id="rope">
+<div class="marker" id="marker"></div>
+</div>
+
+<img src="player-kanan.svg" class="player right" id="playerRight">
+
+</div>
+
+<!-- PANEL KANAN -->
+<div class="panel right">
+
+<h2 id="q2">8 + 2 = ?</h2>
+
+<input id="ans2" readonly>
+
+<div class="keypad">
+
+<button onclick="add(1,'ans2')">1</button>
+<button onclick="add(2,'ans2')">2</button>
+<button onclick="add(3,'ans2')">3</button>
+
+<button onclick="add(4,'ans2')">4</button>
+<button onclick="add(5,'ans2')">5</button>
+<button onclick="add(6,'ans2')">6</button>
+
+<button onclick="add(7,'ans2')">7</button>
+<button onclick="add(8,'ans2')">8</button>
+<button onclick="add(9,'ans2')">9</button>
+
+<button class="clear" onclick="clearAns('ans2')">C</button>
+<button onclick="add(0,'ans2')">0</button>
+<button class="go" onclick="check(2)">Go</button>
+
+</div>
+</div>
+
+</div>
+
+<h1>Jawab soal untuk menarik tali!</h1>
+<audio id="bgm" loop>
+<source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("click", function(){
+document.getElementById("bgm").play()
+})
+</script>
+
+<script>
+// MAIN MUSIK
+document.addEventListener("click", function(){
+document.getElementById("bgm").play()
+})
+
+
+// POSISI TALI
+let pos = 190
+
+
+// SOAL
+let q1,q2,a1,a2
+
+
+
+// GERAKKAN TALI DAN PLAYER
+function updatePull(){
+
+let rope = document.getElementById("rope")
+let left = document.getElementById("playerLeft")
+let right = document.getElementById("playerRight")
+
+rope.style.transform = "translateX(" + (pos-190) + "px)"
+
+left.style.transform = "translateX(" + (pos-190) + "px) scaleX(-1)"
+
+right.style.transform = "translateX(" + (pos-190) + "px)"
+
+}
+
+
+
+// GENERATOR SOAL
+function randomMath(){
+
+let ops = ["+","-","×","÷"]
+
+let op = ops[Math.floor(Math.random()*ops.length)]
+
+let x,y,question,answer
+
+
+// PENJUMLAHAN
+if(op=="+"){
+
+x = Math.floor(Math.random()*10)+1
+y = Math.floor(Math.random()*10)+1
+
+question = x + " + " + y
+answer = x + y
+}
+
+
+// PENGURANGAN
+if(op=="-"){
+
+x = Math.floor(Math.random()*20)+1
+y = Math.floor(Math.random()*10)+1
+
+if(x<y){
+let t=x
+x=y
+y=t
+}
+
+question = x + " - " + y
+answer = x - y
+}
+
+
+// PERKALIAN
+if(op=="×"){
+
+x = Math.floor(Math.random()*5)+1
+y = Math.floor(Math.random()*5)+1
+
+question = x + " × " + y
+answer = x * y
+}
+
+
+// PEMBAGIAN
+if(op=="÷"){
+
+y = Math.floor(Math.random()*5)+1
+answer = Math.floor(Math.random()*10)+1
+x = answer * y
+
+question = x + " ÷ " + y
+}
+
+return {question,answer}
+
+}
+
+
+
+// MEMBUAT SOAL UNTUK PLAYER
+function newQuestionPlayer(player){
+
+let q = randomMath()
+
+if(player==1){
+q1 = q.question
+a1 = q.answer
+document.getElementById("q1").innerText = q1 + " = ?"
+}
+
+if(player==2){
+q2 = q.question
+a2 = q.answer
+document.getElementById("q2").innerText = q2 + " = ?"
+}
+
+}
+
+
+
+// MENAMBAH ANGKA
+function add(n,id){
+document.getElementById(id).value += n
+}
+
+
+
+// HAPUS JAWABAN
+function clearAns(id){
+document.getElementById(id).value = ""
+}
+
+
+
+// CEK JAWABAN
+function check(player){
+
+
+// PLAYER KIRI
+if(player==1){
+
+let v = parseInt(document.getElementById("ans1").value)
+
+if(v == a1){
+pos -= 20
+}
+
+document.getElementById("ans1").value=""
+
+newQuestionPlayer(1)
+
+}
+
+
+// PLAYER KANAN
+if(player==2){
+
+let v = parseInt(document.getElementById("ans2").value)
+
+if(v == a2){
+pos += 20
+}
+
+document.getElementById("ans2").value=""
+
+newQuestionPlayer(2)
+
+}
+
+
+// GERAKKAN TARIKAN
+updatePull()
+
+
+// CEK PEMENANG
+if(pos < 20){
+showWinner("Pemain Kiri Menang!")
+}
+
+if(pos > 360){
+showWinner("Pemain Kanan Menang!")
+}
+
+}
+
+
+
+// POPUP PEMENANG
+function showWinner(text){
+
+document.getElementById("winnerText").innerText = text
+
+document.getElementById("popupWin").style.display = "flex"
+
+// sembunyikan arena
+document.getElementById("arena").style.visibility = "hidden"
+
+}
+
+
+// MAIN LAGI
+function restartGame(){
+
+pos = 190
+
+updatePull()
+
+// tampilkan kembali arena
+document.getElementById("arena").style.visibility = "visible"
+
+document.getElementById("popupWin").style.display = "none"
+
+newQuestionPlayer(1)
+newQuestionPlayer(2)
+
+}
+
+
+// SOAL AWAL
+newQuestionPlayer(1)
+newQuestionPlayer(2)
+</script>
+
+</body>
+</html>
