@@ -3,6 +3,9 @@
 <!-- rambut -->
 <rect x="30" y="5" width="60" height="18" fill="#111"></rect>
 
+<!-- bandana -->
+<rect x="30" y="18" width="60" height="6" fill="#d83a3a"></rect>
+
 <!-- kepala -->
 <rect x="35" y="24" width="50" height="35" fill="#f4b183"></rect>
 
@@ -14,22 +17,8 @@
 <rect x="44" y="30" width="8" height="3" fill="#000"></rect>
 <rect x="64" y="30" width="8" height="3" fill="#000"></rect>
 
-<!-- tato sukuna dahi -->
-<rect x="55" y="24" width="10" height="3" fill="#000"></rect>
-
-<!-- tato mata -->
-<rect x="42" y="38" width="16" height="2" fill="#000"></rect>
-<rect x="62" y="38" width="16" height="2" fill="#000"></rect>
-
-<!-- tato pipi -->
-<rect x="35" y="42" width="10" height="2" fill="#000"></rect>
-<rect x="75" y="42" width="10" height="2" fill="#000"></rect>
-
-<!-- mulut -->
-<rect x="50" y="48" width="20" height="3" fill="#000"></rect>
-
 <!-- badan -->
-<rect x="30" y="60" width="60" height="30" fill="#7a0c0c"></rect>
+<rect x="30" y="60" width="60" height="30" fill="#2c2c9c"></rect>
 
 <!-- tangan -->
 <circle cx="30" cy="65" r="10" fill="#f4b183"></circle>
