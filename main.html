@@ -21,7 +21,15 @@ color:#6a6488;
 text-shadow:3px 3px 0px #000;
 letter-spacing:2px;
 }
-
+.keypad button{
+padding:12px;
+font-size:16px;
+cursor:pointer;
+border:none;
+background:#ddd;
+border-radius:4px;
+touch-action: manipulation;
+}
 .container{
 display:flex;
 justify-content:space-between;
@@ -235,21 +243,21 @@ Kembali ke Menu
 
 <div class="keypad">
 
-<button onclick="add(1,'ans1')">1</button>
-<button onclick="add(2,'ans1')">2</button>
-<button onclick="add(3,'ans1')">3</button>
+<button ontouchstart="add(1,'ans1')">1</button>
+<button ontouchstart="add(2,'ans1')">2</button>
+<button ontouchstart="add(3,'ans1')">3</button>
 
-<button onclick="add(4,'ans1')">4</button>
-<button onclick="add(5,'ans1')">5</button>
-<button onclick="add(6,'ans1')">6</button>
+<button ontouchstart="add(4,'ans1')">4</button>
+<button ontouchstart="add(5,'ans1')">5</button>
+<button ontouchstart="add(6,'ans1')">6</button>
 
-<button onclick="add(7,'ans1')">7</button>
-<button onclick="add(8,'ans1')">8</button>
-<button onclick="add(9,'ans1')">9</button>
+<button ontouchstart="add(7,'ans1')">7</button>
+<button ontouchstart="add(8,'ans1')">8</button>
+<button ontouchstart="add(9,'ans1')">9</button>
 
-<button class="clear" onclick="clearAns('ans1')">C</button>
-<button onclick="add(0,'ans1')">0</button>
-<button class="go" onclick="check(1)">Go</button>
+<button class="clear" ontouchstart="clearAns('ans1')">C</button>
+<button ontouchstart="add(0,'ans1')">0</button>
+<button class="go" ontouchstart="check(1)">Go</button>
 
 </div>
 </div>
@@ -288,23 +296,23 @@ Kembali ke Menu
 
 <input id="ans2" readonly>
 
-<div class="keypad">
+    <div class="keypad">
 
-<button onclick="add(1,'ans2')">1</button>
-<button onclick="add(2,'ans2')">2</button>
-<button onclick="add(3,'ans2')">3</button>
+<button ontouchstart="add(1,'ans2')">1</button>
+<button ontouchstart="add(2,'ans2')">2</button>
+<button ontouchstart="add(3,'ans2')">3</button>
 
-<button onclick="add(4,'ans2')">4</button>
-<button onclick="add(5,'ans2')">5</button>
-<button onclick="add(6,'ans2')">6</button>
+<button ontouchstart="add(4,'ans2')">4</button>
+<button ontouchstart="add(5,'ans2')">5</button>
+<button ontouchstart="add(6,'ans2')">6</button>
 
-<button onclick="add(7,'ans2')">7</button>
-<button onclick="add(8,'ans2')">8</button>
-<button onclick="add(9,'ans2')">9</button>
+<button ontouchstart="add(7,'ans2')">7</button>
+<button ontouchstart="add(8,'ans2')">8</button>
+<button ontouchstart="add(9,'ans2')">9</button>
 
-<button class="clear" onclick="clearAns('ans2')">C</button>
-<button onclick="add(0,'ans2')">0</button>
-<button class="go" onclick="check(2)">Go</button>
+<button class="clear" ontouchstart="clearAns('ans2')">C</button>
+<button ontouchstart="add(0,'ans2')">0</button>
+<button class="go" ontouchstart="check(2)">Go</button>
 
 </div>
 </div>
@@ -546,3 +554,4 @@ newQuestionPlayer(2)
 
 </body>
 </html>
+
